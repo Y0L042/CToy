@@ -1,0 +1,11 @@
+*.swp
+*.swo
+
+asm/*
+bin-int/*
+bin/*
+vendor/*
+
+!vendor/raylib5/*
+!vendor/STC/include/*
+!vendor/STC/LICENSE
