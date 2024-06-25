@@ -1,4 +1,7 @@
 #include "raylib.h"
+
+#include "memory.h"
+#include "cvec.h"
 #include "uuid.h"
 
 #include <stdlib.h>
@@ -70,6 +73,26 @@ void Ready()
 	card->uuid = uuid_generate();
 
 	printf("card uuid: %"PRIu64"\n", card->uuid);
+
+	CVecInt test;
+	cvec_int_init(&test);
+	for (int i = 0; i < 100; i++)
+	{
+		cvec_int_add_item(&test, i);
+		printf("CVecInt data[%d], cap: %d , %d\n", i, test.data[i], test.capacity);
+	}
+	printf("CVecInt count: %d \n", test.count);
+	printf("CVecInt capacity: %d \n", test.capacity);
+
+	printf("\n ------------------- \n");
+
+	for (int i = 77; i > 0; i--)
+	{
+		cvec_int_remove_idx(&test, i);
+		printf("CVecInt data[%d], cap: %d , %d\n", i-1, test.data[i-1], test.capacity);
+	}
+	printf("CVecInt count: %d \n", test.count);
+	printf("CVecInt capacity: %d \n", test.capacity);
 }
 
 void Update(double delta)
