@@ -1,0 +1,10 @@
+{
+  "defaultBGColor" : {
+    "r" : 100,
+    "b" : 255,
+    "g" : 200,
+    "a" : 255
+  },
+  "defWHRatio" : 0.67,
+  "defHeight" : 200,
+}

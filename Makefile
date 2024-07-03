@@ -1,5 +1,5 @@
-CFLAGS = -I./vendor/raylib5/include -O2 -s -fno-asynchronous-unwind-tables
-LDFLAGS = -L./vendor/raylib5/lib -lraylib -lgdi32 -lwinmm
+CFLAGS = -I./vendor/raylib5/include -I./vendor/cjson/include -O2 -s -fno-asynchronous-unwind-tables
+LDFLAGS = -L./vendor/raylib5/lib -L./vendor/cjson/lib -lraylib -lcjson -lgdi32 -lwinmm
 
 SRC_C = $(wildcard ./src/*.c)
 SRC_ASM = $(wildcard ./src/*.asm)
