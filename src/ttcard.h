@@ -36,12 +36,7 @@ typedef struct {
 
 } TTCard;
 
-typedef struct {
-	UUID uuid;
-	TTCard* ttCard;
-	UUID owner;
-	UUID currentPlr;
-} ActiveTTCard;
+
 
 
 
@@ -57,7 +52,5 @@ void _parse_card_default(cJSON* default_card, TTCard* card);
 void _parse_card_filled(cJSON* filled_cards_json, TTCard* default_card, TTCard* card);
 Color _parse_color(cJSON* color);
 Vector2 _parse_vector2(cJSON* vector2_json);
-
-ActiveTTCard* activettcard_create();
 
 #endif // !TTCARD_H

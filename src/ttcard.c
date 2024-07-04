@@ -155,10 +155,7 @@ void ttcard_draw(TTCard* card, int x, int y)
 
 
 
-ActiveTTCard* activettcard_create()
-{
-	return NULL;
-}
+
 
 
 
