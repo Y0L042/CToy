@@ -5,8 +5,13 @@
 #include <string.h>
 #include <stdio.h>
 
-#define SM_MAX_STATES 256
 #define SM_NAME_LENGTH 50
+#define SM_MAX_STATES 256
+
+#define SM_ERR int
+#define SM_ERR_OK 0
+#define SM_ERR_NAME_NOT_FOUND 1
+#define SM_ERR_NO_CALLBACK 2
 
 typedef struct {
 	char state_name[SM_NAME_LENGTH];
@@ -25,12 +30,12 @@ typedef struct {
 	SM_State *_sm_previous_state;
 } SM_Machine;
 
-void sm_create_state_machine(SM_Machine *fsm);
+void sm_create_state_machine(SM_Machine *fsm, const char *machine_name);
 void sm_register_state(SM_Machine *fsm, SM_State *state, const char *state_name);
-int sm_switch_state(SM_Machine *fsm, const char *state_name);
+SM_ERR sm_switch_state(SM_Machine *fsm, const char *state_name);
 void sm_switch_state_pointer(SM_Machine *fsm, SM_State *new_state);
-void sm_execute_state_update(SM_Machine *fsm, double delta);
-void sm_execute_state_physics_update(SM_Machine *fsm, double delta);
-void sm_execute_state_draw(SM_Machine *fsm, double delta);
+SM_ERR sm_execute_state_update(SM_Machine *fsm, double delta);
+SM_ERR sm_execute_state_physics_update(SM_Machine *fsm, double delta);
+SM_ERR sm_execute_state_draw(SM_Machine *fsm, double delta);
 
 #endif // !STATE_MACHINE_H

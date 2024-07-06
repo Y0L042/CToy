@@ -61,7 +61,7 @@ int main()
 
 void initialize()
 {
-	sm_create_state_machine(&fsm_game_machine);
+	sm_create_state_machine(&fsm_game_machine, "FSM_GAME_MACHINE");
 
 	st_startmenu_initialize_state();
 	st_play_initialize_state();
